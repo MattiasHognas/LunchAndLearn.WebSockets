@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - Lunch & Learn</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+    </head>
+    <body>
+        <ul>
+            <li>
+                @Html.ActionLink("Draw", "Draw", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Chat", "Chat", "Home")
+            </li>
+        </ul>
+        @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

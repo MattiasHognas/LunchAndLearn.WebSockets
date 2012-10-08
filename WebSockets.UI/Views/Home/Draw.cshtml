@@ -1,0 +1,47 @@
+@{
+    ViewBag.Title = "Draw";
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery.signalR-0.5.3.js"></script>
+    <script src="@Url.Content("~/signalR/hubs")"> </script>
+    <script type="text/javascript">
+        $(function () {
+
+            var draw = false;
+            var canvas = $('canvas');
+            var ctx = canvas[0].getContext('2d');
+            ctx.strokeStyle = 'red';
+            
+            var connection = $.connection.socket;
+            $.connection.hub.logging = true;
+            $.connection.hub.error(function (error) {
+                console.log(error);
+            });
+            $.connection.hub.stateChanged(function (change) {
+                console.log('state changed:' + change.newState);
+            });
+            $.connection.hub.start({ transport: 'auto' })
+                .done(function () {
+                    $('#canvas').mousedown(function () { draw = true; });
+                    $('#canvas').mouseup(function () { draw = false; });
+                    $('#canvas').mousemove(function (e) {
+                        if (draw == true) {
+                            connection.addMessage({ x: e.pageX, y: e.pageY });
+                        }
+                    });
+                });
+            connection.getMessage = function (message) {
+                var x = parseInt(message.x) - $('#canvas').offset().left;
+                var y = parseInt(message.y) - $('#canvas').offset().top;
+                ctx.lineWidth = 15;
+                ctx.lineCap = 'round';
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + 1, y + 1);
+                ctx.stroke();
+            };
+        });
+    </script>
+}
+<canvas id="canvas" width="600" height="600" style="background-color: #fff"></canvas>

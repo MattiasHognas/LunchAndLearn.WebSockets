@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSockets.UI", "WebSockets.UI\WebSockets.UI.csproj", "{7A91E010-533D-41DE-A606-5064F9360D24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSockets.UI.Tests", "WebSockets.UI.Tests\WebSockets.UI.Tests.csproj", "{C9519ECE-0937-4417-8E16-A4545E7F6859}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4C91F751-8FBB-4FC4-8FB5-D4EF0868DB22}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSockets.WebSocketServer", "WebSockets.WebSocketServer\WebSockets.WebSocketServer.csproj", "{2E813FC2-34BE-4F68-91D5-F184812F8F4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A91E010-533D-41DE-A606-5064F9360D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A91E010-533D-41DE-A606-5064F9360D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A91E010-533D-41DE-A606-5064F9360D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A91E010-533D-41DE-A606-5064F9360D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9519ECE-0937-4417-8E16-A4545E7F6859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9519ECE-0937-4417-8E16-A4545E7F6859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9519ECE-0937-4417-8E16-A4545E7F6859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9519ECE-0937-4417-8E16-A4545E7F6859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E813FC2-34BE-4F68-91D5-F184812F8F4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E813FC2-34BE-4F68-91D5-F184812F8F4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E813FC2-34BE-4F68-91D5-F184812F8F4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E813FC2-34BE-4F68-91D5-F184812F8F4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

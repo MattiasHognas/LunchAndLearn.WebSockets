@@ -1,0 +1,32 @@
+@{
+    ViewBag.Title = "Chat";
+}
+@section scripts
+{
+    <script src="~/Scripts/jquery.signalR-0.5.3.js"></script>
+    <script src="@Url.Content("~/signalR/hubs")"> </script>
+    <script type="text/javascript">
+        $(function () {
+            var connection = $.connection.socket;
+            $.connection.hub.logging = true;
+            $.connection.hub.error(function (error) {
+                console.log(error);
+            });
+            $.connection.hub.stateChanged(function (change) {
+                console.log('state changed:' + change.newState);
+            });
+            $.connection.hub.start({ transport: 'auto' })
+                .done(function () {
+                    $('#send').on('click', function() {
+                        connection.addMessage({ txt: $('#message').val() });
+                    });
+                });
+            connection.getMessage = function (message) {
+                $('#messages').append(message.txt + '<br/>');
+            };
+        });
+    </script>
+}
+<input type="text" id="message" />
+<input type="button" id="send" value="Send" />
+<div id="messages"></div>
